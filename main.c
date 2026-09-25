@@ -2,8 +2,7 @@
 
 void inverter_maiusculas(char *p);
 void deslocar(char *p, int deslocamento);
-
-
+void rotacionar(char *p, int n_rot);
 
 int main()
 {
@@ -25,6 +24,12 @@ int main()
             int deslocamento;
             scanf("%d", &deslocamento);
             deslocar(str_input, deslocamento);
+        }
+        if (n == 5)
+        {
+            int n_rot;
+            scanf("%d", &n_rot);
+            rotacionar(str_input, n_rot);
         }
     }
     printf("%s\n", str_input);
@@ -87,5 +92,36 @@ void deslocar(char *p, int deslocamento)
             }
         }
         i++;
+    }
+}
+void rotacionar(char *p, int n_rot)
+{
+    int z, temp, i;
+    temp = i = 0;
+    char str_rotacionada[10001];
+    for (z = 0; z < n_rot; z++)
+    {
+        i = 0;
+        while (1)
+        {
+            if (p[i] == '\0')
+                break;
+
+            if (p[i + 1] == '\0')
+            {
+                str_rotacionada[0] = p[i];
+            }
+            else
+                str_rotacionada[i + 1] = p[i];
+
+            i++;
+        }
+        while (1)
+        {
+            if (p[temp] == '\0')
+                break;
+            p[temp] = str_rotacionada[temp];
+            temp++;
+        }
     }
 }
