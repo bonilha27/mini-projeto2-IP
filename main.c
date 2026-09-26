@@ -237,7 +237,6 @@ void trocarMetades(char palavra[])
     }
     int metade = tamanho / 2;
     int pulo;
-    int i;
 
     if (tamanho % 2 == 0)
     {
@@ -247,20 +246,12 @@ void trocarMetades(char palavra[])
     {
         pulo = metade + 1;
     }
-    for (i = 0; i < metade; i++)
+
+    for (int i = 0; i < metade; i++)
     {
         char reserva = palavra[i];
         palavra[i] = palavra[i + pulo];
         palavra[i + pulo] = reserva;
-    }
-    if (tamanho % 2 != 0)
-    {
-        char centro = palavra[metade];
-        for (i = metade; i < tamanho - 1; i++)
-        {
-            palavra[i] = palavra[i + 1];
-        }
-        palavra[tamanho - 1] = centro;
     }
 }
 
